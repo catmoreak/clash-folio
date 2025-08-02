@@ -1,6 +1,9 @@
 ---
 ---
 
+<div class="footer-ticker-bar">
+  <div class="footer-ticker-fill"></div>
+</div>
 <footer class="clash-footer">
   <div class="clash-footer__content">
     <img src="/assets/golem.png" alt="Clash of Clans Shield" class="clash-footer__shield" />
@@ -19,6 +22,35 @@
 </footer>
 
 <style>
+/* Footer Ticker Bar Styles */
+.footer-ticker-bar {
+  width: 100vw;
+  height: 8px;
+  background: linear-gradient(90deg, #bfa76f 0%, #e2b007 100%);
+  overflow: hidden;
+  box-shadow: 0 2px 8px #bfa76f88;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 12001;
+  margin-bottom: 0;
+}
+.footer-ticker-fill {
+  position: absolute;
+  left: -30vw;
+  top: 0;
+  height: 100%;
+  width: 30vw;
+  background: linear-gradient(90deg, #ffe066 0%, #e2b007 80%, #bfa76f 100%);
+  opacity: 0.95;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 0 16px 4px #e2b00788;
+  animation: footer-ticker-move 2.8s linear infinite;
+}
+@keyframes footer-ticker-move {
+  0% { left: -30vw; }
+  100% { left: 100vw; }
+}
 @font-face {
   font-family: 'Supercell-Magic';
   src: url('/fonts/SupercellMagic.woff') format('woff');

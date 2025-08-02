@@ -6,6 +6,10 @@ import Layout from '../layouts/Layout.astro';
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
+
+<div class="golden-ticker-bar">
+  <div class="golden-ticker-fill"></div>
+</div>
 <Layout>
   <main class="clash-home-main">
 
@@ -65,6 +69,34 @@ import Layout from '../layouts/Layout.astro';
 @keyframes shooter-fadein {
   0% { opacity: 0; transform: scale(0.7) translateY(60px); }
   100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.golden-ticker-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 8px;
+  background: linear-gradient(90deg, #bfa76f 0%, #e2b007 100%);
+  z-index: 10001;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #bfa76f88;
+}
+.golden-ticker-fill {
+  position: absolute;
+  left: -30vw;
+  top: 0;
+  height: 100%;
+  width: 30vw;
+  background: linear-gradient(90deg, #ffe066 0%, #e2b007 80%, #bfa76f 100%);
+  opacity: 0.95;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 0 16px 4px #e2b00788;
+  animation: ticker-move 2.8s linear infinite;
+}
+@keyframes ticker-move {
+  0% { left: -30vw; }
+  100% { left: 100vw; }
 }
 </style>
 
