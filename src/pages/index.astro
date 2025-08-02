@@ -8,6 +8,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
   <main class="clash-home-main">
+
     <section class="clash-home-card">
     <div class="clash-map-island island1"></div>
     <div class="clash-map-island island2"></div>
@@ -19,52 +20,54 @@ import Layout from '../layouts/Layout.astro';
 .pirate-anim {
   position: absolute;
   z-index: 3;
-  font-size: 2.5rem;
-  filter: drop-shadow(0 2px 4px #0008);
-  pointer-events: none;
-  animation-duration: 3.5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+
+  background: linear-gradient(90deg, #fff 60%, #e2b007 100%);
+  border-radius: 3px;
+  box-shadow: 0 0 12px 4px #ffe066, 0 0 0 2px #fff;
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 0.1s, transform 0.5s cubic-bezier(0.68,-0.55,0.27,1.55);
 }
-.pirate1 {
-  left: 10%;
-  top: 22%;
-  animation-name: pirate-walk1;
+.css-human-pirate.shoot .pirate-human-bullet {
+  opacity: 1;
+  transform: translateX(120px);
+  transition: opacity 0.1s, transform 0.5s cubic-bezier(0.68,-0.55,0.27,1.55);
 }
-.pirate2 {
-  right: 13%;
-  top: 65%;
-  animation-name: pirate-walk2;
+.pirate-human-body-main {
+  position: absolute;
+  left: 32px;
+  top: 70px;
+  width: 46px;
+  height: 44px;
+  background: #2e3a2e;
+  border-radius: 22px 22px 28px 28px/22px 22px 36px 36px;
+  border: 3px solid #145a1a;
+  z-index: 1;
+  outline: 2px solid #fff;
 }
-.pirate3 {
-  left: 44%;
-  bottom: 13%;
-  animation-name: pirate-attack3;
+.pirate-human-leg {
+  position: absolute;
+  width: 12px;
+  height: 32px;
+  background: #222;
+  border-radius: 8px;
+  z-index: 0;
+  outline: 2px solid #fff;
 }
-@keyframes pirate-walk1 {
-  0% { transform: translateX(0) scaleX(1); }
-  20% { transform: translateX(18px) scaleX(1.1); }
-  40% { transform: translateX(0) scaleX(1); }
-  60% { transform: translateX(-18px) scaleX(0.9); }
-  80% { transform: translateX(0) scaleX(1); }
-  100% { transform: translateX(0) scaleX(1); }
+.pirate-human-leg-left {
+  left: 38px;
+  top: 110px;
 }
-@keyframes pirate-walk2 {
-  0% { transform: translateY(0) scaleX(1); }
-  25% { transform: translateY(-12px) scaleX(1.1); }
-  50% { transform: translateY(0) scaleX(1); }
-  75% { transform: translateY(12px) scaleX(0.9); }
-  100% { transform: translateY(0) scaleX(1); }
+.pirate-human-leg-right {
+  left: 60px;
+  top: 110px;
 }
-@keyframes pirate-attack3 {
-  0% { transform: scale(1) rotate(-8deg); }
-  10% { transform: scale(1.2) rotate(8deg); }
-  20% { transform: scale(1) rotate(-8deg); }
-  30% { transform: scale(1.2) rotate(8deg); }
-  40% { transform: scale(1) rotate(-8deg); }
-  100% { transform: scale(1) rotate(-8deg); }
+@keyframes shooter-fadein {
+  0% { opacity: 0; transform: scale(0.7) translateY(60px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 </style>
+
     <section class="clash-home-card" style="z-index:4; background:rgba(255,242,34,0.18); box-shadow:0 8px 32px #bfa76f,0 0 32px 8px #e2b00755 inset; border:4px solid #bfa76f; border-radius:1.5rem;">
       <img src="/assets/clash.gif" alt="Clash of Clans Animation" class="clash-home-gif" />
       <div class="clash-home-shield">
