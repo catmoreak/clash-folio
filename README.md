@@ -1,11 +1,11 @@
 
 # Clash of Clans Portfolio – Astro Edition
 
-Welcome to your professional Clash of Clans–themed portfolio, built with [Astro](https://astro.build/)! This site features a custom animated treasure map, stylish navigation, and a modern, game-inspired design.
+Welcome to your professional Clash of Clans–themed portfolio, built with [Astro](https://astro.build/)! This site features a custom animated homepage, stylish navigation, and a modern, game-inspired design.
 
 ## ✨ Features
 
-- **Animated Treasure Map**: SVG-based, parchment-style map with animated pirate ship, treasure route, islands, and pulsing treasure marker.
+
 - **Professional Visuals**: Custom styles, themed colors, and polished layout.
 - **Responsive Design**: Works great on desktop and mobile.
 - **Easy Navigation**: Navbar with quick access to the map and other pages.
@@ -43,15 +43,10 @@ Visit [http://localhost:4321](http://localhost:4321) to view your site.
 └── README.md
 ```
 
-## 🗺️ Map Page
 
-- Find the animated treasure map at `/map`.
-- Features:
-  - Parchment background
-  - Animated pirate ship following a treasure route
-  - Bouncing treasure chests and coins
-  - Pulsing "X marks the spot" with glow
-  - Legend for map symbols
+
+
+
 
 ## 🧑‍💻 Scripts
 
