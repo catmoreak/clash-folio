@@ -2,23 +2,195 @@
 ---
 
 
-<nav style="background: linear-gradient(90deg, #3b1e08 0%, #7c4a03 100%); color: #fff; padding: 0.5rem 2rem; display: flex; align-items: center; justify-content: space-between; font-family: 'Supercell-Magic', 'Comic Sans MS', cursive, sans-serif; box-shadow: 0 6px 16px #0007; border-bottom: 6px solid #e2b007; position: sticky; top: 0; z-index: 100;">
-  <div style="display: flex; align-items: center; gap: 1rem;">
-    <!-- <img src="/favicon.svg" alt="Chief's Shield" style="width: 48px; height: 48px; border-radius: 50%; border: 3px solid #e2b007; background: #fff2; box-shadow: 0 2px 8px #0006;" /> -->
-    <span style="font-size: 2rem; font-weight: bold; color: #e2b007; text-shadow: 2px 2px 0 #000, 0 0 8px #e2b007; letter-spacing: 2px;">Chief's base</span>
+<nav class="clash-navbar">
+  <div class="clash-navbar__brand">
+    <span class="clash-navbar__shield" title="Clash of Clans">
+      <img src="/src/assets/logo.png" alt="Clash of Clans Shield" style="width:48px;height:48px;display:block;border-radius:50%;border:3px solid #e2b007;background:#fff2;box-shadow:0 2px 8px #0006;" />
+    </span>
+    <span class="clash-navbar__barbarian" title="Barbarian">
+     
+    </span>
+    <span class="clash-navbar__title">Chief's base</span>
   </div>
-  <ul style="list-style: none; display: flex; gap: 2.5rem; margin: 0; padding: 0; align-items: center;">
-    <li><a href="/" style="color: #fff; text-decoration: none; font-size: 1.2rem; font-weight: bold; padding: 0.5rem 1.2rem; border-radius: 12px; background: #e2b007; color: #3b1e08; box-shadow: 0 2px 8px #0004; transition: background 0.2s, color 0.2s;">Chief</a></li>
-    <li><a href="#about" style="color: #fff; text-decoration: none; font-size: 1.2rem; font-weight: bold; padding: 0.5rem 1.2rem; border-radius: 12px; background: #3b1e08; border: 2px solid #e2b007; transition: background 0.2s, color 0.2s;">About</a></li>
+  <ul class="clash-navbar__links">
+    <li><a class="clash-navbar__link clash-navbar__link--chief" href="/">Chief</a></li>
+    <li><a class="clash-navbar__link clash-navbar__link--about" href="#about">About</a></li>
   </ul>
-  <div style="display: flex; align-items: center; gap: 0.7rem;">
-    <span style="font-size: 2rem;">🛡️</span>
-    <span style="font-size: 1.1rem; color: #e2b007; font-weight: bold; text-shadow: 1px 1px #000;">TH 12</span>
-    <span style="font-size: 1.5rem;">⚡</span>
-    <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Maxed Out</span>
+  <div class="clash-navbar__status">
+    <span class="clash-navbar__icon" title="Clash of Clans">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+        <g>
+          <path d="M16 3C13.5 3 7 5.5 7 12.5C7 21.5 16 29 16 29C16 29 25 21.5 25 12.5C25 5.5 18.5 3 16 3Z" fill="#E2B007" stroke="#7C4A03" stroke-width="2"/>
+          <ellipse cx="16" cy="13" rx="5" ry="6" fill="#fff" fill-opacity="0.15"/>
+        </g>
+      </svg>
+    </span>
+    <span class="clash-navbar__th">TH 12</span>
+    <span class="clash-navbar__icon">⚡</span>
+    <span class="clash-navbar__maxed">Maxed Out</span>
   </div>
 </nav>
 
+<style>
+@font-face {
+  font-family: 'Supercell-Magic';
+  src: url('https://fonts.cdnfonts.com/s/16171/SupercellMagic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.clash-navbar {
+  background: linear-gradient(90deg, #3b1e08 0%, #7c4a03 100%);
+  color: #fff;
+  padding: 0.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Supercell-Magic', 'Comic Sans MS', cursive, sans-serif;
+  box-shadow: 0 6px 16px #0007;
+  border-bottom: 6px solid #e2b007;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  animation: navbar-slide-in 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes navbar-slide-in {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.clash-navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.clash-navbar__shield {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid #e2b007;
+  background: #fff2;
+  box-shadow: 0 2px 8px #0006;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.clash-navbar__shield:hover {
+  transform: rotate(360deg) scale(1.15);
+  box-shadow: 0 0 24px 6px #e2b00799, 0 2px 8px #0006;
+}
+
+.clash-navbar__title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e2b007;
+  text-shadow: 2px 2px 0 #000, 0 0 8px #e2b007, 0 0 16px #fff7;
+  letter-spacing: 2px;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 2px 2px 0 #000, 0 0 8px #e2b007, 0 0 16px #fff7;
+  }
+  to {
+    text-shadow: 2px 2px 0 #000, 0 0 24px #e2b007, 0 0 32px #fff;
+  }
+}
+
+.clash-navbar__links {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.clash-navbar__link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0004;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  position: relative;
+}
+.clash-navbar__link--chief {
+  background: #e2b007;
+  color: #3b1e08;
+}
+.clash-navbar__link--about {
+  background: #3b1e08;
+  border: 2px solid #e2b007;
+}
+.clash-navbar__link:hover {
+  background: #fff;
+  color: #e2b007;
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 0 16px #e2b00799, 0 2px 8px #0004;
+}
+
+.clash-navbar__status {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.clash-navbar__icon {
+  font-size: 2rem;
+  animation: shield-bounce 1.5s infinite alternate;
+}
+
+@keyframes shield-bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-8px) scale(1.1);
+  }
+}
+
+.clash-navbar__th {
+  font-size: 1.1rem;
+  color: #e2b007;
+  font-weight: bold;
+  text-shadow: 1px 1px #000;
+  letter-spacing: 1px;
+  animation: th-glow 1.2s infinite alternate;
+}
+@keyframes th-glow {
+  from {
+    text-shadow: 1px 1px #000, 0 0 4px #e2b007;
+  }
+  to {
+    text-shadow: 1px 1px #000, 0 0 16px #e2b007;
+  }
+}
+
+.clash-navbar__maxed {
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: bold;
+  animation: maxed-flash 1.5s infinite alternate;
+}
+@keyframes maxed-flash {
+  from {
+    color: #fff;
+  }
+  to {
+    color: #e2b007;
+  }
+}
+</style>
 <style>
 @font-face {
   font-family: 'Supercell-Magic';
