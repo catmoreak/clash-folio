@@ -187,10 +187,14 @@
 
 <script>
 window.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('has-loader');
   setTimeout(() => {
     const loader = document.getElementById('clash-loader');
     if (loader) loader.style.opacity = '0';
-    setTimeout(() => loader && loader.remove(), 600);
+    setTimeout(() => {
+      loader && loader.remove();
+      document.body.classList.remove('has-loader');
+    }, 600);
   }, 1800);
 });
 </script>

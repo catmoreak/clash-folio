@@ -9,6 +9,13 @@
     </span>
     <img src="/assets/logo.png" alt="Barbarian" class="clash-footer__barbarian" />
   </div>
+
+<div class="parrot-greeter">
+  <span class="parrot-emoji" role="img" aria-label="Pirate Parrot">
+    <img src="/assets/parrot.png" alt="Pirate Parrot" style="width:100px;height:112px;display:block;object-fit:contain;filter:drop-shadow(0 4px 8px #0008);animation:parrot-wave 1.2s infinite alternate;transform-origin:60% 80%;" />
+  </span>
+  <span class="parrot-speech">Hi!</span>
+</div>
 </footer>
 
 <style>
@@ -51,5 +58,55 @@
   text-shadow: 1px 1px 0 #000, 0 0 8px #e2b007;
   letter-spacing: 1px;
   margin: 0 0.5rem;
+}
+  /* Parrot Greeter Styles */
+.parrot-greeter {
+  position: fixed;
+  right: 2.2vw;
+  bottom: 2.2vw;
+  z-index: 12000;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.3rem;
+  pointer-events: none;
+}
+.parrot-greeter {
+  /* ...existing code... */
+}
+body.has-loader .parrot-greeter {
+  display: none !important;
+}
+.parrot-emoji {
+  width: 82px;
+  height: 92px;
+  display: block;
+  filter: drop-shadow(0 4px 8px #0008);
+  animation: parrot-wave 1.2s infinite alternate;
+  transform-origin: 60% 80%;
+}
+@keyframes parrot-wave {
+  0% { transform: rotate(-8deg) scale(1); }
+  30% { transform: rotate(18deg) scale(1.08); }
+  60% { transform: rotate(-8deg) scale(1); }
+  100% { transform: rotate(-8deg) scale(1); }
+}
+.parrot-speech {
+  background: #fffbe7;
+  color: #3b1e08;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 1.1rem;
+  border-radius: 1.2em 1.2em 1.2em 0.4em;
+  padding: 0.25em 0.8em;
+  margin-bottom: 1.1em;
+  margin-left: 0.1em;
+  box-shadow: 0 2px 8px #0002;
+  border: 2px solid #e2b007;
+  position: relative;
+  animation: parrot-speech-pop 1.2s cubic-bezier(0.68,-0.55,0.27,1.55);
+}
+@keyframes parrot-speech-pop {
+  0% { opacity: 0; transform: scale(0.7) translateY(20px); }
+  80% { opacity: 1; transform: scale(1.08) translateY(-4px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 </style>
