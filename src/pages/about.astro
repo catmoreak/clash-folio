@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+---
+
+
+
+<Layout>
+  <main class="clash-about-main">
+    <section class="clash-about-card">
+      <img src="/src/assets/image-clash.png" alt="Clash of Clans Shield" class="clash-about-shield" />
+      <h1 class="clash-about-title">Hail Me, Chief!</h1>
+      <h2 class="clash-about-sub">From India</h2>
+      <p class="clash-about-desc">I love playing <span class="clash-coc">Clash of Clans</span> and building the mightiest base in the realm. Join my clan or challenge me if you dare!</p>
+      <img src="/src/assets/logo.png" alt="Barbarian" class="clash-about-barbarian" />
+    </section>
+  </main>
+</Layout>
+
+<style>
+.clash-about-main {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #3b1e08 0%, #7c4a03 100%);
+  padding: 2rem 0 3rem 0;
+}
+.clash-about-card {
+  background: #fff2;
+  border: 4px solid #e2b007;
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px #0008;
+  padding: 2.5rem 2rem 2rem 2rem;
+  text-align: center;
+  max-width: 420px;
+  font-family: 'Supercell-Magic', 'Comic Sans MS', cursive, sans-serif;
+  color: #fff;
+  position: relative;
+  animation: about-card-in 1.1s cubic-bezier(0.68,-0.55,0.27,1.55);
+}
+@keyframes about-card-in {
+  0% { transform: scale(0.7) translateY(60px); opacity: 0; }
+  80% { transform: scale(1.05) translateY(-10px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+.clash-about-shield {
+    margin-top: 1rem;
+  width: 200px;
+  height: 150px;
+  background: none;
+  
+  margin-bottom: 1rem;
+  animation: shield-pop 1.2s cubic-bezier(0.68,-0.55,0.27,1.55);
+}
+@keyframes shield-pop {
+  0% { transform: scale(0.5) rotate(-30deg); opacity: 0; }
+  80% { transform: scale(1.1) rotate(10deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+.clash-about-title {
+  font-size: 2.2rem;
+  color: #e2b007;
+  margin: 0.5rem 0 0.2rem 0;
+  text-shadow: 2px 2px 0 #000, 0 0 8px #e2b007;
+  letter-spacing: 2px;
+  animation: about-glow 2s infinite alternate;
+}
+@keyframes about-glow {
+  from { text-shadow: 2px 2px 0 #000, 0 0 8px #e2b007, 0 0 16px #fff7; }
+  to { text-shadow: 2px 2px 0 #000, 0 0 24px #e2b007, 0 0 32px #fff; }
+}
+.clash-about-sub {
+  font-size: 1.3rem;
+  color: #fff;
+  margin: 0 0 1.2rem 0;
+  text-shadow: 1px 1px 0 #7c4a03;
+  animation: about-fadein 1.5s 0.3s both;
+}
+.clash-about-desc {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 0 #000;
+  animation: about-fadein 1.5s 0.5s both;
+}
+@keyframes about-fadein {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.clash-coc {
+  color: #e2b007;
+  font-weight: bold;
+  text-shadow: 0 0 8px #e2b007, 0 0 16px #fff7;
+}
+.clash-about-barbarian {
+  height: 90px;
+  width: auto;
+  margin-top: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  animation: barbarian-bounce 1.2s 0.7s both cubic-bezier(0.68,-0.55,0.27,1.55);
+}
+@keyframes barbarian-bounce {
+  0% { transform: scale(0.5) translateY(60px); opacity: 0; }
+  80% { transform: scale(1.1) translateY(-10px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+</style>

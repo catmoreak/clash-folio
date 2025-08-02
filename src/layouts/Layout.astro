@@ -1,43 +1,42 @@
-
 ---
 import ClashNavbar from '../components/ClashNavbar.astro';
 import ClashFooter from '../components/ClashFooter.astro';
 ---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<ClashNavbar />
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-		<slot />
-		<ClashFooter />
-	</body>
+  <head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<meta name="generator" content={Astro.generator} />
+	<title>Astro Basics</title>
+  </head>
+  <body>
+	<ClashNavbar />
+	<slot />
+	<ClashFooter />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(120deg, #3b1e08 0%, #7c4a03 100%) !important;
+	box-sizing: border-box;
+  }
+  body > * {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+  }
+  /* Remove top margin from first child and bottom margin from last child in slot */
+  slot > *:first-child {
+	margin-top: 0 !important;
+  }
+  slot > *:last-child {
+	margin-bottom: 0 !important;
+  }
 </style>

@@ -1,0 +1,84 @@
+---
+---
+
+<div id="clash-loader">
+  <div class="clash-loader__coins"></div>
+  <div class="clash-loader__elixir"></div>
+  <div class="clash-loader__text">Loading your base...</div>
+</div>
+
+<style>
+#clash-loader {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: linear-gradient(120deg, #3b1e08 0%, #7c4a03 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s;
+}
+.clash-loader__coins, .clash-loader__elixir {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 1.5rem;
+}
+.clash-loader__coins::before, .clash-loader__coins::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  background: url('https://static.wikia.nocookie.net/clashofclans/images/7/7e/Resource_Gold.png') no-repeat center/contain;
+  animation: coin-fall 1.2s infinite linear;
+}
+.clash-loader__coins::after {
+  left: 30%;
+  animation-delay: 0.5s;
+}
+.clash-loader__elixir::before, .clash-loader__elixir::after {
+  content: '';
+  position: absolute;
+  left: 70%;
+  width: 32px;
+  height: 32px;
+  background: url('https://static.wikia.nocookie.net/clashofclans/images/2/2b/Resource_Elixir.png') no-repeat center/contain;
+  animation: elixir-fall 1.3s infinite linear;
+}
+.clash-loader__elixir::after {
+  left: 40%;
+  animation-delay: 0.7s;
+}
+@keyframes coin-fall {
+  0% { top: -40px; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: 120px; opacity: 0; }
+}
+@keyframes elixir-fall {
+  0% { top: -40px; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: 120px; opacity: 0; }
+}
+.clash-loader__text {
+  color: #e2b007;
+  font-family: 'Supercell-Magic', 'Comic Sans MS', cursive, sans-serif;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 0 #000, 0 0 8px #e2b007;
+  margin-top: 1rem;
+  letter-spacing: 2px;
+}
+</style>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    const loader = document.getElementById('clash-loader');
+    if (loader) loader.style.opacity = '0';
+    setTimeout(() => loader && loader.remove(), 600);
+  }, 1800);
+});
+</script>
