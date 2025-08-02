@@ -132,11 +132,14 @@
   background: #3b1e08;
   border: 2px solid #e2b007;
 }
-.clash-navbar__link:hover {
+.clash-navbar__link:hover,
+.clash-navbar__link:active,
+.clash-navbar__link:focus {
   background: #fff;
   color: #e2b007;
   transform: scale(1.08) rotate(-2deg);
   box-shadow: 0 0 16px #e2b00799, 0 2px 8px #0004;
+  outline: none;
 }
 
 .clash-navbar__status {
