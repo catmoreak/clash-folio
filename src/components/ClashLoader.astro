@@ -2,9 +2,20 @@
 ---
 
 <div id="clash-loader">
-  <div class="clash-loader__coins"></div>
-  <div class="clash-loader__elixir"></div>
-  <div class="clash-loader__text">Loading your base...</div>
+  
+   
+  <div class="clash-loader__coins">
+    <div class="coin coin1"></div>
+    <div class="coin coin2"></div>
+    <div class="coin coin3"></div>
+    <div class="coin coin4"></div>
+    <div class="coin coin5"></div>
+  </div>
+  <div class="clash-loader__elixir">
+    <div class="elixir elixir1"></div>
+    <div class="elixir elixir2"></div>
+  </div>
+  
 </div>
 
 <style>
@@ -19,43 +30,129 @@
   justify-content: center;
   transition: opacity 0.5s;
 }
+.clash-loader__shield-spin {
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: shield-spin 1.2s linear infinite;
+}
+@keyframes shield-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.clash-loader__shield {
+  width: 60px;
+  height: 48px;
+  background: linear-gradient(120deg, #e2b007 60%, #bfa100 100%);
+  border-radius: 50% 50% 60% 60%/60% 60% 100% 100%;
+  border: 3px solid #fff7;
+  box-shadow: 0 2px 12px #0007, 0 0 0 4px #e2b00744, 0 0 16px 4px #fff7 inset;
+  position: relative;
+}
 .clash-loader__coins, .clash-loader__elixir {
   position: relative;
   width: 120px;
   height: 120px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
-.clash-loader__coins::before, .clash-loader__coins::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  width: 32px;
-  height: 32px;
-  background: url('https://static.wikia.nocookie.net/clashofclans/images/7/7e/Resource_Gold.png') no-repeat center/contain;
-  animation: coin-fall 1.2s infinite linear;
-}
-.clash-loader__coins::after {
-  left: 30%;
-  animation-delay: 0.5s;
-}
-.clash-loader__elixir::before, .clash-loader__elixir::after {
-  content: '';
-  position: absolute;
-  left: 70%;
-  width: 32px;
-  height: 32px;
-  background: url('https://static.wikia.nocookie.net/clashofclans/images/2/2b/Resource_Elixir.png') no-repeat center/contain;
-  animation: elixir-fall 1.3s infinite linear;
-}
-.clash-loader__elixir::after {
-  left: 40%;
-  animation-delay: 0.7s;
-}
-@keyframes coin-fall {
-  0% { top: -40px; opacity: 0; }
-  20% { opacity: 1; }
+  .coin, .elixir {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    pointer-events: none;
+    user-select: none;
+    top: 0;
+  }
+  .coin {
+    background:
+      linear-gradient(145deg, #fffbe7 0%, #ffe066 40%, #e2b007 70%, #bfa100 100%),
+      radial-gradient(circle at 60% 30%, #fffbe7 0%, #ffe066 40%, transparent 80%),
+      linear-gradient(120deg, #ffe066 60%, #bfa100 100%);
+    border-radius: 50%;
+    border: 2.5px solid #e2b007;
+    box-shadow: 0 2px 8px #0006, 0 0 0 2px #fff4 inset, 0 0 0 6px #e2b00744;
+    position: absolute;
+    overflow: visible;
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(0 2px 2px #bfa10088);
+  }
+  .coin::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 45%;
+    top: 30%;
+    width: 10px;
+    height: 6px;
+    background: linear-gradient(90deg, #fffbe7 0%, #ffe066 100%);
+    border-radius: 50%;
+    opacity: 0.7;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    filter: blur(0.5px);
+  }
+  .coin1 {
+    left: 20%;
+    animation: coin-fall-rain 1.1s 0s infinite linear;
+  }
+  .coin2 {
+    left: 40%;
+    animation: coin-fall-rain 1.3s 0.3s infinite linear;
+  }
+  .coin3 {
+    left: 60%;
+    animation: coin-fall-rain 1.2s 0.6s infinite linear;
+  }
+  .coin4 {
+    left: 80%;
+    animation: coin-fall-rain 1.4s 0.1s infinite linear;
+  }
+  .coin5 {
+    left: 30%;
+    animation: coin-fall-rain 1.25s 0.8s infinite linear;
+  }
+  .elixir {
+    background:
+      radial-gradient(circle at 60% 30%, #fff6ff 0%, #e07cff 30%, transparent 60%),
+      radial-gradient(circle at 40% 80%, #fff6ff 0%, #e07cff 20%, transparent 60%),
+      linear-gradient(120deg, #e07cff 60%, #a100bf 100%),
+      linear-gradient(90deg, #fff6ff 0 10%, transparent 60%);
+    border-radius: 60% 60% 80% 80%/60% 60% 100% 100%;
+    border: 3px solid #e07cff;
+    box-shadow: 0 2px 8px #0006, 0 0 0 2px #fff4 inset, 0 0 0 6px #e07cff44;
+    position: absolute;
+    overflow: visible;
+  }
+  .elixir::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 55%;
+    top: 65%;
+    width: 14px;
+    height: 10px;
+    background: linear-gradient(90deg, #fff6ff 0%, #e07cff 100%);
+    border-radius: 50%;
+    opacity: 0.7;
+    transform: translate(-50%, -50%) rotate(-8deg);
+    filter: blur(0.5px);
+  }
+  .elixir1 {
+    left: 70%;
+    transform: translateX(-50%);
+    animation: elixir-fall 1.3s infinite linear;
+  }
+  .elixir2 {
+    left: 40%;
+    transform: translateX(-50%);
+    animation: elixir-fall 1.3s 0.7s infinite linear;
+  }
+@keyframes coin-fall-rain {
+  0% { top: -38px; opacity: 0; transform: scale(0.9) rotate(-10deg); }
+  10% { opacity: 1; }
   80% { opacity: 1; }
-  100% { top: 120px; opacity: 0; }
+  100% { top: 120px; opacity: 0; transform: scale(1.05) rotate(20deg); }
 }
 @keyframes elixir-fall {
   0% { top: -40px; opacity: 0; }
@@ -66,10 +163,25 @@
 .clash-loader__text {
   color: #e2b007;
   font-family: 'Supercell-Magic', 'Comic Sans MS', cursive, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-shadow: 2px 2px 0 #000, 0 0 8px #e2b007;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.clash-loader__dots::after {
+  content: '';
+  display: inline-block;
+  width: 1.2em;
+  animation: dots 1.2s steps(3, end) infinite;
+}
+@keyframes dots {
+  0% { content: ''; }
+  33% { content: '.'; }
+  66% { content: '..'; }
+  100% { content: '...'; }
 }
 </style>
 

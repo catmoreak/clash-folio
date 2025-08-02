@@ -7,5 +7,304 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	
+  <main class="clash-home-main">
+    <section class="clash-home-card">
+    <div class="clash-map-island island1"></div>
+    <div class="clash-map-island island2"></div>
+    <div class="clash-map-island island3"></div>
+    <span class="pirate-anim pirate1">🏴‍☠️</span>
+    <span class="pirate-anim pirate2">🏴‍☠️</span>
+    <span class="pirate-anim pirate3">🏴‍☠️</span>
+<style>
+.pirate-anim {
+  position: absolute;
+  z-index: 3;
+  font-size: 2.5rem;
+  filter: drop-shadow(0 2px 4px #0008);
+  pointer-events: none;
+  animation-duration: 3.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.pirate1 {
+  left: 10%;
+  top: 22%;
+  animation-name: pirate-walk1;
+}
+.pirate2 {
+  right: 13%;
+  top: 65%;
+  animation-name: pirate-walk2;
+}
+.pirate3 {
+  left: 44%;
+  bottom: 13%;
+  animation-name: pirate-attack3;
+}
+@keyframes pirate-walk1 {
+  0% { transform: translateX(0) scaleX(1); }
+  20% { transform: translateX(18px) scaleX(1.1); }
+  40% { transform: translateX(0) scaleX(1); }
+  60% { transform: translateX(-18px) scaleX(0.9); }
+  80% { transform: translateX(0) scaleX(1); }
+  100% { transform: translateX(0) scaleX(1); }
+}
+@keyframes pirate-walk2 {
+  0% { transform: translateY(0) scaleX(1); }
+  25% { transform: translateY(-12px) scaleX(1.1); }
+  50% { transform: translateY(0) scaleX(1); }
+  75% { transform: translateY(12px) scaleX(0.9); }
+  100% { transform: translateY(0) scaleX(1); }
+}
+@keyframes pirate-attack3 {
+  0% { transform: scale(1) rotate(-8deg); }
+  10% { transform: scale(1.2) rotate(8deg); }
+  20% { transform: scale(1) rotate(-8deg); }
+  30% { transform: scale(1.2) rotate(8deg); }
+  40% { transform: scale(1) rotate(-8deg); }
+  100% { transform: scale(1) rotate(-8deg); }
+}
+</style>
+    <section class="clash-home-card" style="z-index:4; background:rgba(255,242,34,0.18); box-shadow:0 8px 32px #bfa76f,0 0 32px 8px #e2b00755 inset; border:4px solid #bfa76f; border-radius:1.5rem;">
+      <img src="/src/assets/clash.gif" alt="Clash of Clans Animation" class="clash-home-gif" />
+      <div class="clash-home-shield">
+        <span class="clash-sparkle sparkle1"></span>
+        <span class="clash-sparkle sparkle2"></span>
+      </div>
+      <h1 class="clash-home-title">I am <span class="clash-coc">Shreyas</span> <span class="clash-emoji">🏴‍☠️</span></h1>
+      <h2 class="clash-home-welcome">Welcome to my pirate island!<br>I love <span class="clash-coc">Science</span>, <span class="clash-coc">Clash of Clans</span> &amp; treasure hunts!</h2>
+      <p class="clash-home-desc"><span class="clash-emoji">🍫</span> Chocolates, aye!<br><span class="clash-emoji">�️</span> Sometimes I get lost solving <span class="clash-coc">Maths</span> riddles.<br><span class="clash-emoji">🏝️</span> Explore the islands and beware of pirates!</p>
+      <div class="clash-home-barbarian"></div>
+    </section>
+    </section>
+  </main>
 </Layout>
+
+<style>
+.clash-home-gif {
+  display: block;
+  margin: 0 auto 1rem auto;
+  width: 120px;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px #0007;
+  animation: gif-pop 1.1s cubic-bezier(0.68,-0.55,0.27,1.55);
+}
+@keyframes gif-pop {
+  0% { transform: scale(0.7) translateY(-30px); opacity: 0; }
+  80% { transform: scale(1.05) translateY(10px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+.clash-home-main {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #8a6a3a;
+  background-image:
+    repeating-linear-gradient(135deg, #5a432222 0 2px, transparent 2px 40px),
+    repeating-linear-gradient(-135deg, #5a432222 0 2px, transparent 2px 40px),
+    radial-gradient(ellipse at 60% 20%, #a88b5a 60%, transparent 100%),
+    radial-gradient(ellipse at 20% 80%, #a88b5a 50%, transparent 100%),
+    url('data:image/svg+xml;utf8,<svg width="100%25" height="100%25" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 Q40,0 80,30 T160,30 T240,30 T320,30 T400,30 T480,30 T560,30 T640,30 T720,30 T800,30 V570 Q760,600 720,570 T640,570 T560,570 T480,570 T400,570 T320,570 T240,570 T160,570 T80,570 T0,570 Z" fill="none" stroke="%23543a1a" stroke-width="18"/></svg>');
+  padding: 2rem 0 3rem 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 120px 30px #3b2a13 inset, 0 0 0 18px #5a4322 inset;
+}
+.clash-home-main::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  width: 420px;
+  height: 420px;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: 0.13;
+  pointer-events: none;
+  background: url('data:image/svg+xml;utf8,<svg width="420" height="420" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="210" cy="210" rx="200" ry="200" fill="%234b2e0a"/><ellipse cx="210" cy="210" rx="170" ry="170" fill="%238a6a3a"/><path d="M140 270 Q180 250 210 270 Q240 250 280 270" stroke="%23000" stroke-width="8" fill="none"/><ellipse cx="170" cy="180" rx="18" ry="28" fill="%23fff"/><ellipse cx="250" cy="180" rx="18" ry="28" fill="%23fff"/><ellipse cx="170" cy="185" rx="7" ry="10" fill="%23000"/><ellipse cx="250" cy="185" rx="7" ry="10" fill="%23000"/><rect x="190" y="220" width="40" height="18" rx="8" fill="%23fff" stroke="%23000" stroke-width="4"/><rect x="200" y="238" width="20" height="8" rx="4" fill="%23000"/><path d="M120 140 Q210 80 300 140" stroke="%23000" stroke-width="10" fill="none"/><rect x="110" y="120" width="40" height="20" rx="8" fill="%23000"/><rect x="270" y="120" width="40" height="20" rx="8" fill="%23000"/><rect x="180" y="90" width="60" height="30" rx="15" fill="%23000"/><rect x="195" y="100" width="30" height="10" rx="5" fill="%23fff"/><rect x="205" y="110" width="10" height="5" rx="2" fill="%23fff"/><rect x="160" y="320" width="100" height="30" rx="15" fill="%23000"/><rect x="180" y="330" width="60" height="10" rx="5" fill="%23fff"/></svg>') center/contain no-repeat;
+  filter: blur(0.5px) grayscale(0.2);
+.clash-home-main::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background:
+    radial-gradient(circle at 20% 30%, #4b2e0a55 0 18%, transparent 60%),
+    radial-gradient(circle at 80% 70%, #4b2e0a44 0 14%, transparent 60%),
+    radial-gradient(circle at 60% 60%, #3b2a1355 0 10%, transparent 60%),
+    radial-gradient(circle at 40% 80%, #2d1a0a33 0 8%, transparent 60%),
+    radial-gradient(circle at 70% 20%, #3b2a1344 0 12%, transparent 60%);
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  filter: blur(1.5px);
+}
+}
+.clash-home-main::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 60px 48px 56px 52px/52px 60px 48px 56px;
+  border: 12px dashed #7c6844;
+  box-shadow:
+    0 0 0 24px #b09a6b,
+    0 0 80px 20px #3b2a13 inset;
+  opacity: 0.85;
+  filter: blur(1px) contrast(0.95);
+}
+.clash-home-main::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(135deg, #fff1 0 2px, transparent 2px 40px), repeating-linear-gradient(-135deg, #fff1 0 2px, transparent 2px 40px);
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+  animation: bg-move 8s linear infinite;
+}
+@keyframes bg-move {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 80px 80px, -80px -80px; }
+}
+.clash-home-card {
+  background: rgba(255, 242, 34, 0.10);
+  border: 4px solid #e2b007;
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px #0008, 0 0 32px 8px #e2b00755 inset;
+  padding: 2.5rem 2rem 2rem 2rem;
+  text-align: center;
+  max-width: 440px;
+  font-family: 'Supercell-Magic', 'Comic Sans MS', cursive, sans-serif;
+  color: #fff;
+  position: relative;
+  animation: home-card-in 1.1s cubic-bezier(0.68,-0.55,0.27,1.55);
+  border-image: linear-gradient(120deg, #e2b007 60%, #fff7 100%) 1;
+  overflow: visible;
+}
+@keyframes home-card-in {
+  0% { transform: scale(0.7) translateY(60px); opacity: 0; }
+  80% { transform: scale(1.05) translateY(-10px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+.clash-home-shield {
+  margin: 1rem auto 1rem auto;
+  width: 120px;
+  height: 90px;
+  background: linear-gradient(120deg, #e2b007 60%, #bfa100 100%);
+  border-radius: 50% 50% 60% 60%/60% 60% 100% 100%;
+  border: 4px solid #fff7;
+  box-shadow: 0 2px 12px #0007, 0 0 0 6px #e2b00744, 0 0 32px 8px #fff7 inset;
+  position: relative;
+  animation: shield-pop 1.2s cubic-bezier(0.68,-0.55,0.27,1.55);
+  overflow: visible;
+}
+.clash-sparkle {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle, #fff 60%, #fff7 100%);
+  border-radius: 50%;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: sparkle-fade 1.6s infinite alternate;
+  z-index: 2;
+}
+.sparkle1 {
+  left: 18px;
+  top: 10px;
+  animation-delay: 0.2s;
+}
+.sparkle2 {
+  right: 18px;
+  top: 28px;
+  animation-delay: 1s;
+}
+@keyframes sparkle-fade {
+  0% { opacity: 0.2; transform: scale(0.7); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.2; transform: scale(0.7); }
+}
+@keyframes shield-pop {
+  0% { transform: scale(0.5) rotate(-30deg); opacity: 0; }
+  80% { transform: scale(1.1) rotate(10deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+.clash-home-title {
+  font-size: 2.2rem;
+  color: #ffe066;
+  margin: 0.5rem 0 0.2rem 0;
+  font-weight: 900;
+  text-shadow:
+    0 0 2px #000,
+    0 0 4px #000,
+    2px 2px 0 #000,
+    0 0 16px #ffe066,
+    0 0 32px #fff7,
+    0 0 48px #ffe066;
+  letter-spacing: 2px;
+  animation: home-glow 2s infinite alternate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.clash-emoji {
+  font-size: 1.3em;
+  filter: drop-shadow(0 2px 4px #0008);
+  vertical-align: middle;
+}
+@keyframes home-glow {
+  from { text-shadow: 2px 2px 0 #000, 0 0 8px #e2b007, 0 0 16px #fff7; }
+  to { text-shadow: 2px 2px 0 #000, 0 0 24px #e2b007, 0 0 32px #fff; }
+}
+.clash-home-welcome {
+  font-size: 1.3rem;
+  color: #fff;
+  margin: 0 0 1.2rem 0;
+  text-shadow: 1px 1px 0 #7c4a03;
+  animation: home-fadein 1.5s 0.3s both;
+}
+.clash-home-desc {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 0 #000;
+  animation: home-fadein 1.5s 0.5s both;
+}
+@keyframes home-fadein {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.clash-coc {
+  color: #ffe066;
+  font-weight: 900;
+  text-shadow:
+    0 0 2px #000,
+    0 0 4px #000,
+    0 0 12px #ffe066,
+    0 0 24px #fff7;
+}
+.clash-home-barbarian {
+  height: 90px;
+  width: 70px;
+  margin: 1.5rem auto 0 auto;
+  background: linear-gradient(120deg, #f7c873 60%, #b97a2a 100%);
+  border-radius: 30% 30% 50% 50%/40% 40% 100% 100%;
+  border: 3px solid #fff7;
+  box-shadow: 0 2px 8px #0006, 0 0 0 2px #fff4 inset, 0 0 24px 6px #0008;
+  position: relative;
+  animation: barbarian-bounce 1.2s 0.7s both cubic-bezier(0.68,-0.55,0.27,1.55);
+  z-index: 1;
+}
+@keyframes barbarian-bounce {
+  0% { transform: scale(0.5) translateY(60px); opacity: 0; }
+  80% { transform: scale(1.1) translateY(-10px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+</style>
+  /* ...existing code... */
+</style>

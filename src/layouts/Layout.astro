@@ -1,6 +1,7 @@
 ---
 import ClashNavbar from '../components/ClashNavbar.astro';
 import ClashFooter from '../components/ClashFooter.astro';
+import ClashLoader from '../components/ClashLoader.astro';
 ---
 
 <!doctype html>
@@ -13,6 +14,7 @@ import ClashFooter from '../components/ClashFooter.astro';
 	<title>Astro Basics</title>
   </head>
   <body>
+	<ClashLoader />
 	<ClashNavbar />
 	<slot />
 	<ClashFooter />
