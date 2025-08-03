@@ -1,14 +1,17 @@
 
+
 # Clash of Clans Portfolio – Astro Edition
 
 Welcome to your professional Clash of Clans–themed portfolio, built with [Astro](https://astro.build/)! This site features a custom animated homepage, stylish navigation, and a modern, game-inspired design.
 
+
 ## ✨ Features
 
-
 - **Professional Visuals**: Custom styles, themed colors, and polished layout.
+- **Island Treasure Map**: Interactive map page with a dark brown island theme, visible red "X" for the start, old ships, coconut trees, and a treasure chest. No legend for a cleaner look.
 - **Responsive Design**: Works great on desktop and mobile.
 - **Easy Navigation**: Navbar with quick access to the map and other pages.
+
 
 ## 🚀 Getting Started
 
@@ -27,6 +30,7 @@ npm run dev
 ```
 
 Visit [http://localhost:4321](http://localhost:4321) to view your site.
+
 
 ## 📁 Project Structure
 
@@ -48,6 +52,7 @@ Visit [http://localhost:4321](http://localhost:4321) to view your site.
 
 
 
+
 ## 🧑‍💻 Scripts
 
 | Command           | Action                                    |
@@ -56,6 +61,7 @@ Visit [http://localhost:4321](http://localhost:4321) to view your site.
 | `npm run dev`     | Start local dev server                    |
 | `npm run build`   | Build your production site to `./dist/`   |
 | `npm run preview` | Preview your build locally                |
+
 
 ## 📦 Deployment
 
@@ -71,11 +77,13 @@ Preview the production build:
 npm run preview
 ```
 
-## � Credits
+
+## 🏝️ Credits
 
 - Built with [Astro](https://astro.build/)
 - Inspired by Clash of Clans visuals
 
 ---
+
 
 For more info, see the [Astro documentation](https://docs.astro.build/).
