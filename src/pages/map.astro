@@ -5,31 +5,35 @@ title: Map
 
 <style>
   .island-map-section {
-    padding: 2.5rem 0 2rem 0;
+    padding: 3.5rem 0 2.5rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 70vh;
+    min-height: 75vh;
     background: linear-gradient(180deg, #7c4a03 0%, #a97436 50%, #c49e60 80%, #ffe066 100%);
+    border: 4px solid #a97436;
+    box-shadow: 0 0 32px 0 #7c4a0340;
   }
   .island-map-title {
     font-family: 'Supercell-Magic', 'Comic Sans MS', cursive, serif;
     color: #1e88e5;
-    font-size: 2.7rem;
-    margin-bottom: 1.2rem;
-    letter-spacing: 2px;
+    font-size: 3.1rem;
+    margin-bottom: 2.2rem;
+    letter-spacing: 2.5px;
     text-shadow: 2px 2px 0 #fffbe7, 0 0 12px #ffb300;
+    text-align: center;
   }
   .island-map-container {
     background: #fffbe7;
     border-radius: 2.8rem;
-    box-shadow: 0 8px 32px #3bb3e044, 0 1.5px 0 #ffb300, 0 0 0 12px #ffe066 inset;
-    padding: 2.2rem 2.2rem 1.2rem 2.2rem;
-    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 32px #3bb3e044, 0 1.5px 0 #ffb300, 0 0 0 12px #ffe066 inset, 0 0 0 4px #a97436;
+    padding: 2.7rem 2.7rem 1.7rem 2.7rem;
+    margin-bottom: 2.2rem;
     max-width: 99vw;
     overflow-x: auto;
     border: 7px double #1e88e5;
     position: relative;
+    transition: box-shadow 0.3s;
   }
   .island-map-svg {
     width: 700px;
@@ -37,35 +41,13 @@ title: Map
     display: block;
     background: none;
     border-radius: 2.2rem;
+    margin: 0 auto;
+    box-shadow: 0 4px 24px #7c4a0320;
+    border: 2.5px solid #a97436;
+    transition: box-shadow 0.3s;
   }
 
-  .island-map-legend {
-    display: flex;
-    gap: 2.2rem;
-    font-size: 1.2rem;
-    color: #1e88e5;
-    margin-top: 0.7rem;
-    font-family: 'Comic Sans MS', cursive, serif;
-  }
-  .legend-x {
-    color: #1e88e5;
-    font-size: 1.5em;
-    margin-right: 0.2em;
-  }
-  .legend-trophy {
-    color: #ff9100;
-    font-size: 1.5em;
-    margin-right: 0.2em;
-  }
-  .legend-dot {
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    background: #ffe066;
-    border-radius: 50%;
-    margin-right: 4px;
-    border: 2.5px solid #1e88e5;
-  }
+  /* Legend styles removed (no legend in layout) */
   @media (max-width: 800px) {
     .island-map-svg {
       width: 96vw;
