@@ -1,0 +1,165 @@
+
+
+---
+layout: '../layouts/Layout.astro'
+title: Map
+---
+
+<section class="ancient-map-section">
+  <h1 class="ancient-map-title">Ancient Treasure Map</h1>
+  <div class="ancient-map-container">
+    <svg class="ancient-map-svg" viewBox="0 0 700 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Parchment background -->
+      <rect x="0" y="0" width="700" height="480" rx="60" fill="url(#kids-bg)" stroke="#3bb3e0" stroke-width="13"/>
+      <defs>
+        <radialGradient id="kids-bg" cx="50%" cy="50%" r="80%">
+          <stop offset="0%" stop-color="#b3e6ff"/><!-- sky blue center -->
+          <stop offset="70%" stop-color="#7fdc8c"/><!-- bright green mid -->
+          <stop offset="100%" stop-color="#fffbe7"/><!-- soft yellow edge -->
+        </radialGradient>
+        <filter id="burntEdges" x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" result="turb"/>
+          <feDisplacementMap in2="turb" in="SourceGraphic" scale="18" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </defs>
+      <!-- Decorative Roman columns (corners) -->
+      <g>
+        <rect x="22" y="22" width="12" height="36" rx="4" fill="#fffbe7" stroke="#3bb3e0" stroke-width="2.5"/>
+        <rect x="666" y="22" width="12" height="36" rx="4" fill="#fffbe7" stroke="#3bb3e0" stroke-width="2.5"/>
+        <rect x="22" y="422" width="12" height="36" rx="4" fill="#fffbe7" stroke="#3bb3e0" stroke-width="2.5"/>
+        <rect x="666" y="422" width="12" height="36" rx="4" fill="#fffbe7" stroke="#3bb3e0" stroke-width="2.5"/>
+        <!-- Laurel wreaths above columns -->
+        <ellipse cx="28" cy="18" rx="14" ry="7" fill="none" stroke="#7fdc8c" stroke-width="2.5"/>
+        <ellipse cx="672" cy="18" rx="14" ry="7" fill="none" stroke="#7fdc8c" stroke-width="2.5"/>
+        <ellipse cx="28" cy="462" rx="14" ry="7" fill="none" stroke="#7fdc8c" stroke-width="2.5"/>
+        <ellipse cx="672" cy="462" rx="14" ry="7" fill="none" stroke="#7fdc8c" stroke-width="2.5"/>
+      </g>
+      <!-- Ancient route path -->
+      <path id="ancient-route" d="M120 400 Q 200 220 350 320 Q 500 420 600 120" stroke="#ffb300" stroke-width="7" fill="none" stroke-dasharray="16 14" filter="url(#burntEdges)"/>
+      <!-- Start: Roman ship icon -->
+      <g>
+        <g transform="translate(90,370) scale(1.2)">
+          <rect x="-12" y="8" width="36" height="8" rx="4" fill="#3bb3e0"/>
+          <polygon points="6,8 18,-12 30,8" fill="#ffb300" stroke="#3bb3e0" stroke-width="2"/>
+          <rect x="15" y="-12" width="6" height="20" fill="#fffbe7" stroke="#3bb3e0" stroke-width="1.5"/>
+        </g>
+        <text x="120" y="400" font-size="32" font-family="serif" fill="#3bb3e0" stroke="#fffbe7" stroke-width="2" text-anchor="middle">✖</text>
+      </g>
+      <!-- End: Animated treasure with shimmer and laurel -->
+      <g>
+        <g transform="translate(600,120)">
+          <ellipse cx="0" cy="10" rx="18" ry="10" fill="#ffeb3b" stroke="#ffb300" stroke-width="3"/>
+          <ellipse cx="0" cy="10" rx="18" ry="10" fill="url(#gold-shimmer)" opacity="0.7">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+          </ellipse>
+          <!-- Laurel wreath -->
+          <ellipse cx="0" cy="22" rx="22" ry="8" fill="none" stroke="#7fdc8c" stroke-width="2.5"/>
+        </g>
+        <text x="600" y="120" font-size="38" font-family="serif" fill="#ffb300" stroke="#3bb3e0" stroke-width="3" text-anchor="middle">🏆</text>
+      </g>
+      <defs>
+        <linearGradient id="gold-shimmer" x1="-18" y1="10" x2="18" y2="10" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#fffbe7"/>
+          <stop offset="50%" stop-color="#e2b007"/>
+          <stop offset="100%" stop-color="#fffbe7"/>
+        </linearGradient>
+      </defs>
+      <!-- Compass rose -->
+      <g transform="translate(350,60)">
+        <circle r="22" fill="#fffbe7" stroke="#3bb3e0" stroke-width="2.5"/>
+        <polygon points="0,-18 4,0 0,18 -4,0" fill="#ffb300" stroke="#3bb3e0" stroke-width="1.5"/>
+        <polygon points="-18,0 0,4 18,0 0,-4" fill="#3bb3e0" stroke="#ffb300" stroke-width="1.5"/>
+        <text x="0" y="7" text-anchor="middle" font-size="13" font-family="serif" fill="#3bb3e0">N</text>
+      </g>
+      <!-- Faded Latin script -->
+      <text x="180" y="80" font-size="22" font-family="serif" fill="#7c1f47" opacity="0.18" style="font-style:italic;">"Fortuna audaces iuvat"</text>
+      <!-- Animated moving dot (treasure route) -->
+      <circle r="13" fill="#ffb300" stroke="#3bb3e0" stroke-width="4">
+        <animateMotion dur="5s" repeatCount="indefinite">
+          <mpath xlink:href="#ancient-route" />
+        </animateMotion>
+      </circle>
+    </svg>
+  </div>
+  <div class="ancient-map-legend">
+    <span><span class="legend-x" style="color:#3bb3e0;">✖</span> Start (Roman Ship)</span>
+    <span><span class="legend-trophy" style="color:#ffb300;">🏆</span> Treasure (Laurel & Gold)</span>
+    <span><span class="legend-dot" style="background:#ffb300;border-color:#3bb3e0;"></span> Route</span>
+    <span><svg width="22" height="22" style="vertical-align:middle;"><circle cx="11" cy="11" r="10" fill="#fffbe7" stroke="#3bb3e0" stroke-width="2.5"/><polygon points="11,3 13,11 11,19 9,11" fill="#ffb300" stroke="#3bb3e0" stroke-width="1.2"/></svg> Compass</span>
+  </div>
+</section>
+
+<style>
+  .ancient-map-section {
+    padding: 2.5rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 70vh;
+    background: repeating-linear-gradient(135deg, #b3e6ff 0 40px, #7fdc8c 40px 80px, #fffbe7 80px 120px);
+  }
+  .ancient-map-title {
+    font-family: 'Supercell-Magic', 'Comic Sans MS', cursive, serif;
+    color: #3bb3e0;
+    font-size: 2.7rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 #fffbe7, 0 0 12px #ffb300;
+  }
+  .ancient-map-container {
+    background: #fffbe7;
+    border-radius: 2.8rem;
+    box-shadow: 0 8px 32px #3bb3e044, 0 1.5px 0 #ffb300, 0 0 0 12px #ffb300 inset;
+    padding: 2.2rem 2.2rem 1.2rem 2.2rem;
+    margin-bottom: 1.5rem;
+    max-width: 99vw;
+    overflow-x: auto;
+    border: 7px double #3bb3e0;
+    position: relative;
+  }
+  .ancient-map-svg {
+    width: 700px;
+    height: 480px;
+    display: block;
+    background: none;
+    border-radius: 2.2rem;
+  }
+  .ancient-map-legend {
+    display: flex;
+    gap: 2.2rem;
+    font-size: 1.2rem;
+    color: #3bb3e0;
+    margin-top: 0.7rem;
+    font-family: 'Comic Sans MS', cursive, serif;
+  }
+  .legend-x {
+    color: #3bb3e0;
+    font-size: 1.5em;
+    margin-right: 0.2em;
+  }
+  .legend-trophy {
+    color: #ffb300;
+    font-size: 1.5em;
+    margin-right: 0.2em;
+  }
+  .legend-dot {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: #ffb300;
+    border-radius: 50%;
+    margin-right: 4px;
+    border: 2.5px solid #3bb3e0;
+  }
+  @media (max-width: 800px) {
+    .ancient-map-svg {
+      width: 96vw;
+      height: 60vw;
+      min-width: 260px;
+      min-height: 180px;
+    }
+    .ancient-map-container {
+      padding: 0.7rem 0.2rem 0.7rem 0.2rem;
+    }
+  }
+</style>
