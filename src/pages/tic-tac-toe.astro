@@ -21,10 +21,6 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
   0% { left: -10vw; }
   100% { left: 110vw; }
 }
-@keyframes wing-flap {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(-15deg); }
-}
 .bg-decor {
   position: fixed;
   pointer-events: none;
@@ -139,27 +135,29 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
   animation-delay: 12s;
   opacity: 0.5;
 }
-.bird-wing-v {
+.bird-arch {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 40%;
   width: 100%;
-  height: 100%;
-  border-bottom: 3px solid #222;
-  border-radius: 0 0 60% 60%/0 0 100% 100%;
-  transform: rotate(-18deg);
+  height: 40%;
+  border-bottom: 2.5px solid #222;
+  border-radius: 0 0 100% 100%/0 0 100% 100%;
   background: transparent;
 }
-.bird-wing-v.right {
+.bird-arch.right {
   left: 50%;
-  transform: scaleX(-1) rotate(-18deg);
+  width: 50%;
+  border-bottom: 2.5px solid #222;
+  border-radius: 0 0 100% 100%/0 0 100% 100%;
+  transform: scaleX(-1) rotate(-10deg);
 }
-.bird-body-dot {
+.bird-dot {
   position: absolute;
   left: 48%;
-  top: 55%;
-  width: 5px;
-  height: 5px;
+  top: 80%;
+  width: 3.5px;
+  height: 3.5px;
   background: #222;
   border-radius: 50%;
   z-index: 1;
@@ -172,19 +170,19 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
   <div class="cloud cloud2"></div>
   <div class="cloud cloud3"></div>
   <div class="css-bird">
-    <div class="bird-wing-v"></div>
-    <div class="bird-wing-v right"></div>
-    <div class="bird-body-dot"></div>
+    <div class="bird-arch"></div>
+    <div class="bird-arch right"></div>
+    <div class="bird-dot"></div>
   </div>
   <div class="css-bird css-bird2">
-    <div class="bird-wing-v"></div>
-    <div class="bird-wing-v right"></div>
-    <div class="bird-body-dot"></div>
+    <div class="bird-arch"></div>
+    <div class="bird-arch right"></div>
+    <div class="bird-dot"></div>
   </div>
   <div class="css-bird css-bird3">
-    <div class="bird-wing-v"></div>
-    <div class="bird-wing-v right"></div>
-    <div class="bird-body-dot"></div>
+    <div class="bird-arch"></div>
+    <div class="bird-arch right"></div>
+    <div class="bird-dot"></div>
   </div>
   <img src="/src/assets/coconut-tree.svg" alt="Coconut Tree" class="bg-decor coconut-tree" />
   <img src="/src/assets/coconut-tree.svg" alt="Coconut Tree" class="bg-decor coconut-tree-right" />
