@@ -50,7 +50,27 @@ export default function TicTacToe() {
           </div>
         ))}
       </div>
-      {winner && <p className="winner">Winner: {winner === "X" ? "⚔️" : "🏴‍☠️"}</p>}
+      {/* Pirate Winner Popup */}
+      {winner && (
+        <div className="pirate-popup-overlay">
+          <div className="pirate-popup">
+            <div className="pirate-popup-header">{winner === "X" ? "⚔️" : "🏴‍☠️"} Ahoy, Matey!</div>
+            <div className="pirate-popup-body">
+              <p className="pirate-popup-text">
+                {winner === "X"
+                  ? "The swordsman claims victory!"
+                  : "The pirate flag rules the seas!"}
+              </p>
+              <div style={{ fontSize: "2.5rem", margin: "0.5rem 0" }}>
+                {winner === "X" ? "⚔️" : "🏴‍☠️"}
+              </div>
+              <button className="pirate-popup-btn" onClick={resetGame}>
+                Play Again
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <button onClick={resetGame}>Restart</button>
       <style>{`
         .pirate-theme {
@@ -119,6 +139,55 @@ export default function TicTacToe() {
           transition: background 0.2s;
         }
         .pirate-theme button:hover {
+          background: #ffd700;
+          color: #3e2723;
+        }
+        /* Pirate popup styles */
+        .pirate-popup-overlay {
+          position: fixed;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background: rgba(20, 10, 0, 0.7);
+          z-index: 1000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .pirate-popup {
+          background: #2d1606;
+          border: 4px solid #ffd700;
+          border-radius: 18px;
+          box-shadow: 0 8px 32px #000a;
+          padding: 2.2rem 2.5rem 1.5rem 2.5rem;
+          text-align: center;
+          color: #ffd700;
+          max-width: 340px;
+          font-family: 'Pirata One', cursive, serif;
+          position: relative;
+        }
+        .pirate-popup-header {
+          font-size: 2rem;
+          margin-bottom: 0.5rem;
+          letter-spacing: 1px;
+        }
+        .pirate-popup-body {
+          font-size: 1.2rem;
+        }
+        .pirate-popup-text {
+          margin-bottom: 0.5rem;
+        }
+        .pirate-popup-btn {
+          margin-top: 1rem;
+          padding: 10px 24px;
+          font-size: 1.1rem;
+          background: #8d5524;
+          color: #ffd700;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          box-shadow: 0 2px 8px #0006;
+          transition: background 0.2s;
+        }
+        .pirate-popup-btn:hover {
           background: #ffd700;
           color: #3e2723;
         }
