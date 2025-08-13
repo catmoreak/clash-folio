@@ -10,7 +10,7 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
 }
 @keyframes float-tree {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-18px); }
+  50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
 }
 @keyframes cloud-move {
@@ -29,14 +29,14 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
 .coconut-tree {
   left: 0;
   bottom: 0;
-  width: 90px;
+  width: 70px;
   height: auto;
   animation: float-tree 3.5s ease-in-out infinite;
 }
 .coconut-tree-right {
   right: 2vw;
   bottom: 0;
-  width: 90px;
+  width: 70px;
   height: auto;
   transform: scaleX(-1);
   animation: float-tree 4s ease-in-out infinite 1.5s;
@@ -51,7 +51,7 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
   justify-content: center;
   background: linear-gradient(270deg, #7ed6ff 0%, #b3e0ff 30%, #f7e9b0 70%, #f2d16b 100%);
   background-size: 200% 200%;
-  animation: bg-move 12s ease-in-out infinite;
+  animation: bg-move 16s ease-in-out infinite;
   position: relative;
   overflow: hidden;
 }
@@ -59,40 +59,40 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
   position: fixed;
   top: 4vh;
   left: 8vw;
-  width: 90px;
-  height: 90px;
+  width: 60px;
+  height: 60px;
   background: radial-gradient(circle at 60% 40%, #fffbe0 0%, #ffe066 60%, #ffd700 100%);
   border-radius: 50%;
-  box-shadow: 0 0 60px 20px #ffe06688;
+  box-shadow: 0 0 30px 10px #ffe06655;
   z-index: 1;
-  opacity: 0.95;
+  opacity: 0.92;
 }
 .cloud {
   position: fixed;
   top: 8vh;
-  width: 120px;
-  height: 50px;
+  width: 90px;
+  height: 36px;
   background: #fff;
   border-radius: 50px;
-  opacity: 0.7;
-  filter: blur(1px);
+  opacity: 0.6;
+  filter: blur(0.5px);
   z-index: 1;
   animation: cloud-move 40s linear infinite;
 }
 .cloud2 {
   top: 14vh;
-  width: 80px;
-  height: 36px;
+  width: 60px;
+  height: 24px;
   left: 10vw;
-  opacity: 0.5;
+  opacity: 0.4;
   animation-duration: 55s;
 }
 .cloud3 {
   top: 20vh;
-  width: 100px;
-  height: 40px;
+  width: 70px;
+  height: 28px;
   left: 30vw;
-  opacity: 0.6;
+  opacity: 0.5;
   animation-duration: 70s;
 }
 .sand-texture {
@@ -100,37 +100,38 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
   left: 0;
   bottom: 0;
   width: 100vw;
-  height: 120px;
+  height: 80px;
   background: repeating-radial-gradient(circle at 20% 80%, #f2d16b 2px, #f7e9b0 4px, transparent 8px), repeating-radial-gradient(circle at 80% 90%, #f2d16b 2px, #f7e9b0 4px, transparent 8px);
   z-index: 2;
-  opacity: 0.25;
+  opacity: 0.18;
   pointer-events: none;
 }
 .tic-tac-toe {
-  box-shadow: 0 12px 48px 0 #0005, 0 2px 16px #ffd70044;
+  box-shadow: 0 4px 16px 0 #0003, 0 1px 6px #ffd70022;
   z-index: 10;
+  max-width: 95vw;
 }
 .css-bird {
   position: fixed;
   top: 12vh;
   left: -10vw;
-  width: 32px;
-  height: 18px;
+  width: 28px;
+  height: 14px;
   z-index: 2;
   animation: bird-fly 18s linear infinite;
 }
 .css-bird2 {
   top: 18vh;
-  width: 24px;
-  height: 12px;
+  width: 20px;
+  height: 10px;
   animation-duration: 22s;
   animation-delay: 6s;
   opacity: 0.7;
 }
 .css-bird3 {
   top: 24vh;
-  width: 18px;
-  height: 9px;
+  width: 14px;
+  height: 7px;
   animation-duration: 25s;
   animation-delay: 12s;
   opacity: 0.5;
@@ -141,14 +142,14 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
   top: 40%;
   width: 100%;
   height: 40%;
-  border-bottom: 2.5px solid #222;
+  border-bottom: 2px solid #222;
   border-radius: 0 0 100% 100%/0 0 100% 100%;
   background: transparent;
 }
 .bird-arch.right {
   left: 50%;
   width: 50%;
-  border-bottom: 2.5px solid #222;
+  border-bottom: 2px solid #222;
   border-radius: 0 0 100% 100%/0 0 100% 100%;
   transform: scaleX(-1) rotate(-10deg);
 }
@@ -156,11 +157,18 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
   position: absolute;
   left: 48%;
   top: 80%;
-  width: 3.5px;
-  height: 3.5px;
+  width: 2.5px;
+  height: 2.5px;
   background: #222;
   border-radius: 50%;
   z-index: 1;
+}
+@media (max-width: 600px) {
+  .sun { width: 36px; height: 36px; left: 4vw; }
+  .cloud, .cloud2, .cloud3 { width: 40px !important; height: 16px !important; }
+  .coconut-tree, .coconut-tree-right { width: 38px; }
+  .sand-texture { height: 40px; }
+  .tic-tac-toe { padding: 0.5rem !important; }
 }
 </style>
 
@@ -184,8 +192,8 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
     <div class="bird-arch right"></div>
     <div class="bird-dot"></div>
   </div>
-  <img src="/src/assets/coconut-tree.svg" alt="Coconut Tree" class="bg-decor coconut-tree" />
-  <img src="/src/assets/coconut-tree.svg" alt="Coconut Tree" class="bg-decor coconut-tree-right" />
+  <img src="/src/assets/coconut-tree.svg" alt="Coconut Tree" class="bg-decor coconut-tree" loading="lazy" />
+  <img src="/src/assets/coconut-tree.svg" alt="Coconut Tree" class="bg-decor coconut-tree-right" loading="lazy" />
   <div class="sand-texture"></div>
   <TicTacToeComponent />
 </div>
