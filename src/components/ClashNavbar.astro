@@ -13,9 +13,9 @@
     <span class="clash-navbar__title">Chief's base</span>
   </div>
   <ul class="clash-navbar__links">
-    <li><a class="clash-navbar__link clash-navbar__link--chief" href="/">Chief</a></li>
-    <li><a class="clash-navbar__link clash-navbar__link--about" href="/about">About</a></li>
-    <li><a class="clash-navbar__link clash-navbar__link--map" href="/map">Map</a></li>
+  <li><a class="clash-navbar__link clash-navbar__link--chief" href="/">Chief<span class="glitter" aria-hidden="true"></span></a></li>
+  <li><a class="clash-navbar__link clash-navbar__link--about" href="/about">About<span class="glitter" aria-hidden="true"></span></a></li>
+  <li><a class="clash-navbar__link clash-navbar__link--map" href="/map">Map<span class="glitter" aria-hidden="true"></span></a></li>
   </ul>
   <div class="clash-navbar__status">
     <span class="clash-navbar__icon" title="Clash of Clans">
@@ -194,6 +194,52 @@
     color: #e2b007;
   }
 }
+  .clash-navbar__link {
+    /* ...existing code... */
+    overflow: visible;
+  }
+  .glitter {
+    pointer-events: none;
+    position: absolute;
+    right: 0.5em;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.8em;
+    height: 1.8em;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .clash-navbar__link .glitter {
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .clash-navbar__link:hover .glitter,
+  .clash-navbar__link:focus .glitter {
+    opacity: 1;
+    animation: glitter-sparkle 0.7s linear;
+  }
+  .glitter::before {
+    content: '✨';
+    font-size: 1.7em;
+    animation: glitter-twinkle 0.7s linear;
+    color: #ffe066;
+    text-shadow: 0 0 16px #ffe066, 0 0 32px #fff, 0 0 8px #e2b007;
+    filter: drop-shadow(0 0 8px #ffe066) drop-shadow(0 0 16px #fff);
+  }
+  @keyframes glitter-sparkle {
+    0% { filter: brightness(1); transform: scale(0.7) rotate(0deg); }
+    40% { filter: brightness(2.5); transform: scale(1.2) rotate(10deg); }
+    60% { filter: brightness(2.5); transform: scale(1.1) rotate(-10deg); }
+    100% { filter: brightness(1); transform: scale(0.7) rotate(0deg); }
+  }
+  @keyframes glitter-twinkle {
+    0% { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+    40% { opacity: 1; transform: scale(1.2) rotate(10deg); }
+    60% { opacity: 1; transform: scale(1.1) rotate(-10deg); }
+    100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+  }
 </style>
 <style>
 @font-face {
