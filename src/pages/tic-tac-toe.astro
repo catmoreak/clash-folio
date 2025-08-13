@@ -1,0 +1,41 @@
+---
+import TicTacToeComponent from "../components/TicTacToe.astro";
+---
+
+<style>
+.bg-decor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+}
+.coconut-tree {
+  left: 0;
+  bottom: 0;
+  width: 90px;
+  height: auto;
+}
+.coconut-tree-right {
+  right: 2vw;
+  bottom: 0;
+  width: 90px;
+  height: auto;
+  transform: scaleX(-1);
+}
+</style>
+
+<div style="
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #87ceeb 0%, #b3e0ff 30%, #f7e9b0 60%, #f2d16b 100%);
+  position: relative;
+  overflow: hidden;
+">
+  <img src="/src/assets/coconut-tree.svg" alt="Coconut Tree" class="bg-decor coconut-tree" />
+  <img src="/src/assets/coconut-tree.svg" alt="Coconut Tree" class="bg-decor coconut-tree-right" />
+  <TicTacToeComponent />
+</div>

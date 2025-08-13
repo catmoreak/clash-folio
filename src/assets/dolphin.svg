@@ -1,0 +1,14 @@
+<svg width="120" height="60" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fish body -->
+  <ellipse cx="60" cy="35" rx="28" ry="15" fill="#4fc3f7" stroke="#1976d2" stroke-width="2"/>
+  <!-- Fish tail -->
+  <polygon points="88,35 115,20 115,50" fill="#1976d2"/>
+  <!-- Top fin -->
+  <polygon points="55,20 65,5 70,22" fill="#1976d2"/>
+  <!-- Bottom fin -->
+  <polygon points="55,50 65,60 70,48" fill="#1976d2"/>
+  <!-- Fish eye -->
+  <circle cx="45" cy="32" r="2" fill="#222"/>
+  <!-- Fish mouth -->
+  <path d="M41 36 Q43 35 45 36" stroke="#1976d2" stroke-width="2" fill="none"/>
+</svg>
