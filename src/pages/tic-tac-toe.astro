@@ -13,6 +13,10 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
   50% { transform: translateY(-18px); }
   100% { transform: translateY(0); }
 }
+@keyframes cloud-move {
+  0% { left: -20vw; }
+  100% { left: 120vw; }
+}
 .bg-decor {
   position: fixed;
   pointer-events: none;
@@ -41,16 +45,76 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(270deg, #87ceeb, #b3e0ff, #f7e9b0, #f2d16b, #87ceeb);
+  background: linear-gradient(270deg, #7ed6ff 0%, #b3e0ff 30%, #f7e9b0 70%, #f2d16b 100%);
   background-size: 200% 200%;
   animation: bg-move 12s ease-in-out infinite;
   position: relative;
   overflow: hidden;
 }
+.sun {
+  position: fixed;
+  top: 4vh;
+  left: 8vw;
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle at 60% 40%, #fffbe0 0%, #ffe066 60%, #ffd700 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 60px 20px #ffe06688;
+  z-index: 1;
+  opacity: 0.95;
+}
+.cloud {
+  position: fixed;
+  top: 8vh;
+  width: 120px;
+  height: 50px;
+  background: #fff;
+  border-radius: 50px;
+  opacity: 0.7;
+  filter: blur(1px);
+  z-index: 1;
+  animation: cloud-move 40s linear infinite;
+}
+.cloud2 {
+  top: 14vh;
+  width: 80px;
+  height: 36px;
+  left: 10vw;
+  opacity: 0.5;
+  animation-duration: 55s;
+}
+.cloud3 {
+  top: 20vh;
+  width: 100px;
+  height: 40px;
+  left: 30vw;
+  opacity: 0.6;
+  animation-duration: 70s;
+}
+.sand-texture {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 120px;
+  background: repeating-radial-gradient(circle at 20% 80%, #f2d16b 2px, #f7e9b0 4px, transparent 8px), repeating-radial-gradient(circle at 80% 90%, #f2d16b 2px, #f7e9b0 4px, transparent 8px);
+  z-index: 2;
+  opacity: 0.25;
+  pointer-events: none;
+}
+.tic-tac-toe {
+  box-shadow: 0 12px 48px 0 #0005, 0 2px 16px #ffd70044;
+  z-index: 10;
+}
 </style>
 
 <div class="animated-bg">
+  <div class="sun"></div>
+  <div class="cloud" style="left: 5vw;"></div>
+  <div class="cloud cloud2"></div>
+  <div class="cloud cloud3"></div>
   <img src="/src/assets/coconut-tree.svg" alt="Coconut Tree" class="bg-decor coconut-tree" />
   <img src="/src/assets/coconut-tree.svg" alt="Coconut Tree" class="bg-decor coconut-tree-right" />
+  <div class="sand-texture"></div>
   <TicTacToeComponent />
 </div>
