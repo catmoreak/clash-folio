@@ -53,7 +53,7 @@ export default function TicTacToe() {
       {/* Pirate Winner Popup */}
       {winner && (
         <div className="pirate-popup-overlay">
-          <div className="pirate-popup">
+          <div className="pirate-popup pirate-popup-animate">
             <div className="pirate-popup-header">{winner === "X" ? "⚔️" : "🏴‍☠️"} Ahoy, Matey!</div>
             <div className="pirate-popup-body">
               <p className="pirate-popup-text">
@@ -190,6 +190,15 @@ export default function TicTacToe() {
         .pirate-popup-btn:hover {
           background: #ffd700;
           color: #3e2723;
+        }
+        @keyframes pirate-bounce-in {
+          0% { transform: scale(0.7) translateY(-60px); opacity: 0; }
+          60% { transform: scale(1.05) translateY(10px); opacity: 1; }
+          80% { transform: scale(0.98) translateY(-4px); }
+          100% { transform: scale(1) translateY(0); }
+        }
+        .pirate-popup-animate {
+          animation: pirate-bounce-in 0.7s cubic-bezier(.68,-0.55,.27,1.55);
         }
       `}</style>
       <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet" />

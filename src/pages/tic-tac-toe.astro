@@ -3,6 +3,16 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
 ---
 
 <style>
+@keyframes bg-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes float-tree {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0); }
+}
 .bg-decor {
   position: fixed;
   pointer-events: none;
@@ -13,6 +23,7 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
   bottom: 0;
   width: 90px;
   height: auto;
+  animation: float-tree 3.5s ease-in-out infinite;
 }
 .coconut-tree-right {
   right: 2vw;
@@ -20,10 +31,9 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
   width: 90px;
   height: auto;
   transform: scaleX(-1);
+  animation: float-tree 4s ease-in-out infinite 1.5s;
 }
-</style>
-
-<div style="
+.animated-bg {
   min-height: 100vh;
   width: 100vw;
   margin: 0;
@@ -31,10 +41,15 @@ import TicTacToeComponent from "../components/TicTacToe.astro";
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom, #87ceeb 0%, #b3e0ff 30%, #f7e9b0 60%, #f2d16b 100%);
+  background: linear-gradient(270deg, #87ceeb, #b3e0ff, #f7e9b0, #f2d16b, #87ceeb);
+  background-size: 200% 200%;
+  animation: bg-move 12s ease-in-out infinite;
   position: relative;
   overflow: hidden;
-">
+}
+</style>
+
+<div class="animated-bg">
   <img src="/src/assets/coconut-tree.svg" alt="Coconut Tree" class="bg-decor coconut-tree" />
   <img src="/src/assets/coconut-tree.svg" alt="Coconut Tree" class="bg-decor coconut-tree-right" />
   <TicTacToeComponent />
